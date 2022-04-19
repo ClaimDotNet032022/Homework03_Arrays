@@ -28,7 +28,7 @@ namespace ArraysHomework
             // fill all of the values in to make the loop on line 28 pass as is.
             // Do not edit the loop that assert the passing case. Instead, add code above it to make it pass.
 
-            //hint you need some form of repetition. //the integer named i is set to zero. add 1 to i only if i is less than the number of elements in the array
+            //hint you need some form of repetition. //the integer named i is set to zero. add 1 to i only if i is less than the number of elements in the array.
 
             for (int i = 0; i < myArray.Length; i++)
             {
@@ -179,7 +179,7 @@ namespace ArraysHomework
             // This is just a fun little section to explore the various methods on a list object.
             // They are not counting against you because we have not yet covered methods.
             // to access the lists methods use the dot operator similar to Console.WriteLine();
-
+            /*
             // BONUS reverse this list
             List<int> reverseMe = new List<int>() { 1, 2, 3, 4, 5 };
 
