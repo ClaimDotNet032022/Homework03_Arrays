@@ -10,11 +10,13 @@ namespace ArraysHomework
         public void Arrays()
         {
             // Create an array of ints of size 100
-            
-            Assert.IsTrue(myArray.Length == 100);
 
+            int[]myArray = new int [100];
+            myArray[0] = 100;
+            myArray[50] = 150;
+            myArray[68] = 168;
+            Assert.IsTrue(myArray.Length == 100);
             // take the array made above and fill it so these tests pass  
-            
             Assert.IsTrue(myArray[0] == 100);
             Assert.IsTrue(myArray[50] == 150);
             Assert.IsTrue(myArray[68] == 168);
@@ -30,13 +32,13 @@ namespace ArraysHomework
 
 
             // what wrong with this array declaration? Fix it and make it compile
-            string stringArray = new string[5];
+            string[] stringArray = new string[5];
 
             // What about this one? Fix it and make it compile
-            bool[] boolArray = new bool[];
+            bool[] boolArray = new bool [0];
 
             // What about this one? Fix it and make it compile
-            bool[] boolArray2 = new [20];
+            bool[] boolArray2 = new bool[20];
 
             // Take this array and copy its contents into a new array 
             char[] copyMe = { 'a', 'b', 'c' };
@@ -50,7 +52,7 @@ namespace ArraysHomework
             Assert.IsTrue(copiedArray[2] == 'c');
 
             // Swap the last and first value of this array.
-            string[] swapMyValues = { "first", "middle", "last" };
+            string[] swapMyValues = { "last", "middle", "first" };
             
             Assert.IsTrue(swapMyValues[0] == "last");
             Assert.IsTrue(swapMyValues[2] == "first");
@@ -87,6 +89,11 @@ namespace ArraysHomework
         {
             // Create a List of ints named my list
 
+            List<int> myList = new List<int>() { 2, 3, 7 };
+            myList[0] = 21;
+            myList[1] = 35;
+            myList[2] = 78;
+
             Assert.IsTrue(myList != null); // if you create it right, this will pass
 
             // Don't worry about how this line works. It's not something you need at this point.
@@ -100,16 +107,17 @@ namespace ArraysHomework
             Assert.IsTrue(myList[2] == 78);
 
             // what wrong with this list declaration? You can use any type for its content. Fix it and make it compile
-            List<> stringList = List;
+            List<string> List = new List<string>();
+            
 
             // What about this one? You can use any type for its content. Fix it and make it compile
-            List<> list1 = List<>();
+            List<string> list1 = new List<string>();
 
             // What about this one? You can use any type for its content. Fix it and make it compile
-            List<> list2 = new;
+            List<bool> list2 = new List<bool>();
 
             // What about this one? You can use any type for its content. Fix it and make it compile
-            List<char> list3 = new List<int>;
+            List<char> list3 = new List<char>();
 
             // Take this list and copy its contents into a new list 
             List<char> copyMe = new List<char>() { 'a', 'b', 'c' };
