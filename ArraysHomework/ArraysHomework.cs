@@ -1,5 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ArraysHomework
 {
@@ -10,11 +12,12 @@ namespace ArraysHomework
         public void Arrays()
         {
             // Create an array of ints of size 100
-            
+            int[] myArray = new int[100];
+
             Assert.IsTrue(myArray.Length == 100);
 
             // take the array made above and fill it so these tests pass  
-            
+
             Assert.IsTrue(myArray[0] == 100);
             Assert.IsTrue(myArray[50] == 150);
             Assert.IsTrue(myArray[68] == 168);
@@ -23,6 +26,11 @@ namespace ArraysHomework
             // Do not edit the loop that assert the passing case. Instead, add code above it to make it pass.
 
             // hint you need some form of repetition.
+
+            for (int i = 0; i < myArray.Length; i++)
+            {
+                myArray[i] = 10;
+            }
             for (int i = 0; i < myArray.Length; i++)        // Don't edit from HERE
             {                                               //
                 Assert.IsTrue(myArray[i] == 10);            // 
@@ -30,19 +38,19 @@ namespace ArraysHomework
 
 
             // what wrong with this array declaration? Fix it and make it compile
-            string stringArray = new string[5];
+            string[] stringArray = new string[5];
 
             // What about this one? Fix it and make it compile
-            bool[] boolArray = new bool[];
+            bool[] boolArray = new bool[5];
 
             // What about this one? Fix it and make it compile
-            bool[] boolArray2 = new [20];
+            bool[] boolArray2 = new bool[20];
 
             // Take this array and copy its contents into a new array 
             char[] copyMe = { 'a', 'b', 'c' };
-            char[] copiedArray = new char[3];
+            char[] copiedArray = copyMe;
 
-            
+
 
             Assert.IsTrue(copiedArray.Length == copyMe.Length);
             Assert.IsTrue(copiedArray[0] == 'a');
@@ -51,7 +59,7 @@ namespace ArraysHomework
 
             // Swap the last and first value of this array.
             string[] swapMyValues = { "first", "middle", "last" };
-            
+            System.Array.Reverse(swapMyValues);
             Assert.IsTrue(swapMyValues[0] == "last");
             Assert.IsTrue(swapMyValues[2] == "first");
 
@@ -69,16 +77,18 @@ namespace ArraysHomework
                 
             }
 
+            int[] combinedArray = new int[50];
+            combinedArray = array1.Concat(array2).ToArray();
             // Your code here: combine array1 and array2 into an array named combined
             // Everything from array1 should be in the first half of combined, and everything
             // from array2 should be in the second half of combined.
             
             
-            Assert.IsTrue(combined.Length == 50);
-            Assert.IsTrue(combined[0] == array1[0]);
-            Assert.IsTrue(combined[24] == array1[24]);
-            Assert.IsTrue(combined[25] == array2[0]);
-            Assert.IsTrue(combined[49] == array2[24]);
+            Assert.IsTrue(combinedArray.Length == 50);
+            Assert.IsTrue(combinedArray[0] == array1[0]);
+            Assert.IsTrue(combinedArray[24] == array1[24]);
+            Assert.IsTrue(combinedArray[25] == array2[0]);
+            Assert.IsTrue(combinedArray[49] == array2[24]);
         }
 
 
@@ -86,6 +96,7 @@ namespace ArraysHomework
         public void Lists()
         {
             // Create a List of ints named my list
+            List<int> myList = new List<int>();
 
             Assert.IsTrue(myList != null); // if you create it right, this will pass
 
@@ -95,24 +106,29 @@ namespace ArraysHomework
 
             // take the list made above and fill it so these test passes  
 
+            myList.Add(21);
+            myList.Add(15);
+            myList.Add(78);
             Assert.IsTrue(myList[0] == 21);
             Assert.IsTrue(myList[1] == 35);
             Assert.IsTrue(myList[2] == 78);
 
             // what wrong with this list declaration? You can use any type for its content. Fix it and make it compile
-            List<> stringList = List;
+            List<string> stringList = new List<string>();
 
             // What about this one? You can use any type for its content. Fix it and make it compile
-            List<> list1 = List<>();
+            List<char> list1 = new List<char>();
 
             // What about this one? You can use any type for its content. Fix it and make it compile
-            List<> list2 = new;
+            List<bool> list2 = new List<bool>();
 
             // What about this one? You can use any type for its content. Fix it and make it compile
-            List<char> list3 = new List<int>;
+            List<char> list3 = new List<char>();
 
             // Take this list and copy its contents into a new list 
             List<char> copyMe = new List<char>() { 'a', 'b', 'c' };
+            List<char> copiedList = new List<char>(copyMe);
+
 
 
             Assert.IsTrue(copiedList.Count == copyMe.Count);
@@ -142,6 +158,8 @@ namespace ArraysHomework
             }
 
             // Your code here: combine copy1 into copy 2
+
+            copy2.AddRange(copy1);
 
             Assert.IsTrue(copy2.Count == 50);
 
